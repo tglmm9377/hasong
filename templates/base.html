@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>{% block title %}{% endblock title %}</title>
+	<link rel="stylesheet" type="text/css" href="{% static "css/reset.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
+    {% block topfile %}
+    {% endblock topfile %}
+
+</head>
+<body>
+
+
+{% block head-con %}
+
+    <div class="header_con">
+		<div class="header">
+			<div class="welcome fl">欢迎来到天天生鲜!</div>
+			<div class="fr">
+
+                    {% if user.is_authenticated %}
+                	<div class="login_btn fl">你好<em>{{ user.username }}</em>
+                    <span>|</span>
+                    <em><a href="{% url 'user:logout' %}">退出</a></em>
+				    </div>
+                    {% else %}
+				<div class="login_btn fl">
+					<a href="{% url 'user:login' %}">登录</a>
+					<span>|</span>
+					<a href="{% url 'user:register' %}">注册</a>
+				</div>
+                {% endif %}
+				<div class="user_link fl">
+					<span>|</span>
+					<a href="{% url 'user:info' %}">用户中心</a>
+					<span>|</span>
+					<a href="{% url 'user:cart' %}">我的购物车</a>
+					<span>|</span>
+					<a href="{% url 'user:order' %}">我的订单</a>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock head-con %}
+
+{% block search_content %}
+    <div class="search_bar clearfix">
+		<a href="/" class="logo fl"><img src="/static/images/logo.png"></a>
+        
+		<div class="search_con fl">
+             <script>
+                $(function () {
+                    $('.input_btn').click(function () {
+                        q = $('.input_text').val();
+                        if(q==""){
+                        alert("请输入搜索内容");
+                        }
+                        else{
+                            location.href = '/search/?q='+q+'&page=1'
+                        }
+                    })
+                })
+
+            </script>
+            <form action="/search" method="get">
+                <input type="text" class="input_text fl" name="q" placeholder="搜索商品">
+                <input type="submit" class="input_btn fr" name="" value="搜索">
+            </form>
+		</div>
+
+        
+            <div class="guest_cart fr">
+                <a href="/cart/" class="cart_name fl">我的购物车</a>
+                <div class="goods_count fl" id="show_count">0</div>
+            </div>
+        
+	</div>
+{% endblock search_content %}
+
+{% block body %}{% endblock body %}
+
+{% block bottomfiles %}{% endblock bottomfiles %}
+
+{% block fotter %}
+    <div class="footer no-mp">
+		<div class="foot_link">
+			<a>公司：北京乘数网络信息有限公司</a>
+			<span>|</span>
+			<a href="#">电话：13901184413</a>
+			<span>|</span>
+			<a href="http://www.chengshuwangluo.com/">联系我们</a>
+			<span>地址：北京市密云区新南路69号3层兰华三层01(342)</span>
+			<a href="http://beian.miit.gov.cn">京ICP备19031966号-1</a>
+			<span>|</span>
+			<a href="http://www.chengshuwangluo.com/flow/">入驻须知</a>
+            <span>|</span>
+            <a href="#">入驻协议</a>
+		</div>
+		<p>CopyRight © 2019 北京乘数网络信息有限公司 All Rights Reserved</p>
+	</div>
+{% endblock fotter %}
+</body>
+
+</html>

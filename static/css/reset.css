@@ -1,0 +1,27 @@
+/* 鎶婃爣绛鹃粯璁ょ殑闂磋窛璁句负0 */
+body,ul,ol,p,h1,h2,h3,h4,h5,h6,dl,dd,select,input,textarea,form{margin:0;padding:0}
+
+/* 璁﹉鏍囩鏂囧瓧澶у皬缁ф壙body鐨勬枃瀛楄缃� */
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+
+/* 鍘绘帀鍒楄〃榛樿鐨勫浘鏍� */
+ul,ol{list-style:none;}
+
+/* 鍘绘帀em榛樿鐨勬枩浣� */
+em{font-style: normal;}
+
+/* 鍘绘帀a鏍囩榛樿鐨勪笅鍒掔嚎 */
+a{text-decoration:none;}
+
+
+/* 鍘绘帀鍔犻摼鎺ユ椂浜х敓鐨勬绾� */
+img{border:0;}
+
+/* 娓呴櫎娴姩 */
+.clearfix:before,.clearfix:after{content:"";display:table}
+.clearfix:after{clear:both;}
+.clearfix{zoom:1}
+
+/* 娴姩 */
+.fl{float:left}
+.fr{float:right}
