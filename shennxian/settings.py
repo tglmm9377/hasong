@@ -147,7 +147,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.163.com'
 EMAIL_PORT = 25
 EMAIL_HOST_USER = 'tglmm9377@163.com'
-EMAIL_HOST_PASSWORD = 'LVPFMUWHARIFQTQS'
+EMAIL_HOST_PASSWORD = ''
 EMAIL_FROM = '胡八一<tglmm9377@163.com>'
 #django缓存配置
 CACHES = {
